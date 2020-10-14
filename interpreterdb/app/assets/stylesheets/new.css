@@ -1,0 +1,200 @@
+BODY
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Arial, Verdana
+}
+A
+{
+    TEXT-DECORATION: none
+}
+A:active
+{
+    TEXT-DECORATION: none
+}
+A:link
+{
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    TEXT-DECORATION: underline
+}
+
+.label
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana, Arial;
+}
+.content
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana, Arial;
+}
+
+.title
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Verdana, Arial;
+}
+
+.form_value
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana, Arial
+}
+
+.schedule_item
+{
+	BACKGROUND-COLOR: #EFEDDE;
+}
+
+.notice_fatal
+{
+	COLOR: #0000CC;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    FONT-FAMILY: verdana, arial
+}	
+.notice_info
+{
+	COLOR: #0000CC;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: verdana, arial
+}
+.sidenote
+{
+	COLOR: #777777;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: verdana, arial
+}
+
+
+.hilight
+{
+	BACKGROUND-COLOR: #FFFF00;
+	CURSOR: hand;
+}
+.nolight
+{
+	BACKGROUND-COLOR: #FFFFFF;
+	CURSOR: hand;
+}
+
+.cmdbutton
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: verdana, arial;
+}
+
+.redbutton
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: verdana, arial;
+	BACKGROUND-COLOR: #EE9999;
+    BORDER-TOP-COLOR: #FFCCCC;
+    BORDER-LEFT-COLOR: #FFCCCC;
+    BORDER-BOTTOM-COLOR: #AA7777;
+    BORDER-RIGHT-COLOR: #AA7777;
+}
+
+.popbutton
+{
+    FONT-FAMILY: verdana, arial;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10px;
+    HEIGHT: 18px;
+}
+
+FONT.tabtitle
+{
+	FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: verdana, arial;
+	COLOR: #F0FBFE;
+}
+TABLE.tabtitle
+{
+    BORDER: 1px solid #000000;
+    BORDER-BOTTOM: 0px;
+    BACKGROUND-COLOR: #4C7580;
+}
+
+.tablink
+{
+	COLOR: #000000;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: verdana, arial
+}
+
+.listtable
+{
+    BORDER: 1px solid #000000;
+	PADDING: 2px;
+	BACKGROUND-COLOR: #EFEDDE;	
+}
+.listheader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: verdana, arial;
+    BACKGROUND-COLOR: #686E88;
+}
+.listitem
+{
+	COLOR: #000000;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    FONT-SIZE: 9pt;
+    FONT-FAMILY: verdana, arial;
+}
+.listtextarea
+{
+    BORDER: 1px solid #000000;	
+	BACKGROUND-COLOR: #EFEDDE;
+	scrollbar-3dlight-color: #727056;
+	scrollbar-arrow-color: #727056;
+	scrollbar-base-color: #727056;
+	scrollbar-darkshadow-color: #727056;
+	scrollbar-face-color: #EFEDDE;
+	scrollbar-highlight-color: #FAF9F1;
+	scrollbar-shadow-color: #727056;
+	COLOR: #000000;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    FONT-SIZE: 9pt;
+    FONT-FAMILY: verdana, arial;
+}
+
+.listlabel
+{
+	COLOR: #000000;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    FONT-SIZE: 9pt;
+    FONT-FAMILY: verdana, arial;
+}
+
+.listbreak
+{
+    BACKGROUND-COLOR: #EFEDDE;
+    BORDER: 0px;
+}
+
+.deletebox
+{
+	COLOR: #000000;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    FONT-SIZE: 9pt;
+    FONT-FAMILY: verdana, arial;
+    BORDER: 1px solid #CC0000;
+}

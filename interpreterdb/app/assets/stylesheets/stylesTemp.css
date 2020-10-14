@@ -1,0 +1,187 @@
+BODY
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Arial, Verdana
+}
+A
+{
+    TEXT-DECORATION: none
+}
+A:active
+{
+    TEXT-DECORATION: none
+}
+A:link
+{
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    TEXT-DECORATION: underline
+}
+
+.form_label
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial;
+    BACKGROUND-COLOR: #000000
+}
+.form_value
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana, Arial
+}
+.form_table
+{
+    BORDER-RIGHT: silver;
+    BORDER-TOP: silver 2px solid;
+    BORDER-LEFT: silver;
+    BORDER-BOTTOM: silver 2px solid;
+    BACKGROUND-COLOR: lightgrey
+}
+.form_table_hdr
+{
+    BORDER-TOP: #000000 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Verdana, Arial;
+    BACKGROUND-COLOR: #00529c
+}
+.form_table_ftr
+{
+    BORDER-TOP: #000000 1px solid;
+    FONT-SIZE: 8pt;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Verdana, Arial
+}
+
+
+.deletebox
+{
+    BORDER: #ff0000 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: verdana, arial;
+    COLOR: #000000;
+    BACKGROUND-COLOR: #ffffff;
+}
+
+.dataform
+{
+    BORDER-RIGHT: #333366 1px solid;
+    BORDER-TOP: #333366 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: #333366 1px solid;
+    BORDER-BOTTOM: #333366 1px solid;
+    FONT-FAMILY: verdana, arial;
+    BACKGROUND-COLOR: #ffffff
+}
+
+.listheader
+{
+	padding: 3px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: verdana, arial;
+    BACKGROUND-COLOR: #333366
+}
+.listitem
+{
+	padding: 2px;
+	COLOR: #333366;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: verdana, arial
+}
+
+.detailtable
+{
+    BORDER: #333366 1px solid;
+    COLOR: #777777;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: verdana, arial;
+}
+
+.itemdetail
+{
+	COLOR: #000000;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: verdana;
+    PADDING: 4px;
+}
+
+.sidenote
+{
+	COLOR: #777777;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: verdana, arial
+}
+
+.summarydata
+{
+	COLOR: #000000;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: verdana, arial
+}
+
+
+.tabtitle
+{
+	COLOR: #333366;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    FONT-FAMILY: verdana, arial
+}
+.tablink
+{
+	COLOR: #333366;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: verdana, arial
+}
+
+.notice_fatal
+{
+	COLOR: #0000CC;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    FONT-FAMILY: verdana, arial
+}	
+
+.notice_info
+{
+	COLOR: #0000CC;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: verdana, arial
+}	
+
+.resultstring
+{
+	COLOR: #333366;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    FONT-FAMILY: verdana, arial
+}	
+
+.calendar_day
+{
+	COLOR: #FFFFFF;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: verdana, arial
+}

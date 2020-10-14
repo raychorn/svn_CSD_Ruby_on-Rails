@@ -1,0 +1,3 @@
+class Tblinvoicetemp < ActiveRecord::Base
+  # attr_accessible :title, :body
+end

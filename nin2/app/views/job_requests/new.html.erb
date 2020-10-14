@@ -1,0 +1,179 @@
+<script type="text/javascript">
+    var interpreters_available = '<%= interpreters_available_job_requests_path( :format => :json ) %>';
+</script>
+
+<br/>
+
+<% if notice %>
+    <%= notice %>
+<% end %>
+
+<%# debug @job_request.errors.messages %>
+
+<%= form_for @job_request, :class => 'form-inline', :format => :json, :remote => true do |f| %>
+    <%= f.hidden_field :client_id %>
+    <legend class="first">New Interpreter Request</legend>
+
+    <div class="row-fluid">
+      <div class="span9">
+        <%= f.label :name, 'Request Name' %>
+        <%= f.text_field :name, :class => 'span14' %>
+
+        <div class="row-fluid">
+          <div class="span5">
+            <%= label :job_type, 'Request Type' %>
+            <%= select_tag(:job_type, options_for_select(@job_types.collect { |t| t.title }), {:class => 'span14'}) %>
+            <label>Number of interpreters</label>
+            <input type="text" value="1" class="span14">
+          </div>
+          <div class="span9">
+            <label>Description/Notes</label>
+            <%= text_area_tag(:description, '', :class => 'span15', :style => 'height:95px') %>
+          </div>
+        </div>
+      </div>
+
+      <div class="span5 well">
+        <h3><span class="yellow_color num_aval_interp"></span><span class="aval_intep">Please enter a location...</span>
+        </h3>
+
+        <p class="muted">Lorem ipsum dolor sit amet, consectetur scing elit. Mauris consectetur, tortor.</p>
+        <a id="list_interps" href="#interp_listing" class="btn btn-info disabled span15" data-toggle="modal">List Available Interpreters</a>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span5">
+        <legend>Time</legend>
+        <div class="row-fluid time_select">
+          <div class="span5">
+            <%= f.label :start_datetime, 'Date' %>
+            <%= f.text_field :start_datetime, :class => "datepicker span14", :value => "2012-11-09" %>
+          </div>
+          <div class="span7">
+            <%= f.label :duration_in_hours, 'Duration (hours)' %>
+            <%= f.text_field :duration_in_hours, :class => "span14", :placeholder => "1.5" %>
+          </div>
+        </div>
+        <div class="row-fluid time_select">
+          <div class="span14">
+            <%= f.label :start_datetime, 'Start Time' %>
+            <%= f.time_select :start_datetime, {}, {:class => 'span6'} %>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span14">
+            <label>Recurring</label>
+            <%= f.select :recurring, options_for_select(["One Time", "Daily", "Weekly", "Monthly"]), {}, {:class => 'span13'} %>
+          </div>
+        </div>
+      </div>
+      <div class="span9">
+
+        <legend>Location</legend>
+        <table class="table table-hover table-condensed selectable">
+          <!--<thead>-->
+          <!--<tr>-->
+          <!--<th><strong>Name</strong></th>-->
+          <!--<th><strong>City</strong></th>-->
+          <!--<th><strong>Address</strong></th>-->
+          <!--</tr>-->
+          <!--</thead>-->
+          <tbody id='scheduled-locations'>
+          <% @locations.each do |l| %>
+              <tr data-location="<%= l.to_json %>">
+                <td><%= l.name %></td>
+                <td><%= l.city %></td>
+                <td><%= l.street %> <%= l.street2 %> <%= l.room %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+        <%= f.fields_for :physical_address do |p| %>
+            <div class="row-fluid">
+              <div class="span4">
+                <%= f.label :Name %>
+                <%= p.text_field :name, :class => 'span14' %>
+                <%= f.label :county %>
+                <%= p.text_field :county, :class => 'span14' %>
+              </div>
+
+              <div class="span4">
+                <%= f.label :street %>
+                <%= p.text_field :street, :class => 'span14' %>
+                <%= f.label :state %>
+                <%= p.text_field :state, :class => 'span14' %>
+              </div>
+              <div class="span3">
+                <%= f.label :street2 %>
+                <%= p.text_field :street2, :class => 'span14' %>
+                <%= f.label :zip %>
+                <%= p.text_field :zip, :class => 'span14' %>
+              </div>
+              <div class="span3">
+                <%= f.label :city %>
+                <%= p.text_field :city, :class => 'span14' %>
+                <label class="checkbox inline span14">
+                  <input name="add_to_address_book" value="true" type="checkbox"> Add location to your address book
+                </label>
+              </div>
+
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+
+    <legend>Requirements</legend>
+    <div class="row-fluid">
+      <div class="span5">
+        <h6>Gender</h6>
+        <%= select_tag(:gender, options_for_select(['Either', 'Male', 'Female'])) %>
+      </div>
+      <div class="span10">
+        <h6>Certifications</h6>
+        <% @certifications.each do |certs| %>
+            <label class="checkbox inline"> <input type="checkbox" value="<%= certs.id %>"> <%= certs.name %></label>
+        <% end %>
+      </div>
+    </div>
+
+    <br/><br/><br/><br/>
+    <hr>
+    <button type="submit" class="btn btn-primary">Send Request</button>
+
+<% end %>
+
+
+
+<!-- Modal -->
+<div id="interp_listing" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">List of available interpreters</h3>
+  </div>
+  <div id="interp_listing_body" class="modal-body">
+    <table class="interpListing">
+
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="choose_interpreters" class="btn btn-primary">Choose Interpreters</button>
+  </div>
+</div>
+
+
+
+
+  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+  <script>
+      $(function() {
+          $( ".datepicker" ).datepicker();
+      });
+  </script>
+
+

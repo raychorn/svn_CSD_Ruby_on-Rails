@@ -1,0 +1,257 @@
+<h5 style="padding-top:15px;">Your Name</h5>
+
+<div class="row-fluid">
+
+  <div class="span10">
+    <div class="row-fluid">
+      <div class="span5">
+        <%= client.text_field :first_name, :placeholder => "first name", :class => 'span12' %>
+      </div>
+      <div class="span1">
+        <%= client.text_field :middle_name, :placeholder => "", :class => 'span15' %>
+      </div>
+      <div class="span5">
+        <%= client.text_field :last_name, :placeholder => "last name", :class => 'span15' %>
+      </div>
+      <div class="span3">
+        <%= client.select :gender, options_for_select(Client.enumerated_attributes[:gender], params[:gender]), {}, :class => 'span15' %>
+      </div>
+      <div class="span2">
+        <%= client.text_field :dob, :placeholder => "dob", :class => 'span15 datepicker' %>
+      </div>
+    </div>
+
+  </div>
+  <div class="span5">
+    <p class="super-small">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id
+      odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.
+    </p>
+  </div>
+
+</div>
+
+<div class="row-fluid">
+  <div class="span10">
+    <div class="row-fluid">
+      <div class="span15" style="padding-top:5px;">
+        <label class="checkbox">
+          <input type="checkbox"/>
+          I have read and agree to the <a href="#">terms and conditions</a> for the use of this website.</label>
+      </div>
+    </div>
+
+  </div>
+  <div class="span5">
+    <div class="span15">
+      <p class="super-small">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. .
+      </p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h5>Your Contact Information</h5>
+
+<div class="row-fluid">
+
+  <%= client.fields_for :mailing_address do |b| %>
+      <div class="span10">
+        <div class="row-fluid">
+          <div class="span4">
+            <%= b.text_field :street, :placeholder => "Mailing Address", :class => 'span15' %>
+          </div>
+          <div class="span3">
+            <%= b.text_field :street2, :placeholder => "street2", :class => 'span15' %>
+          </div>
+          <div class="span2">
+            <%= b.text_field :county, :placeholder => "county", :class => 'span15' %>
+          </div>
+          <div class="span2">
+            <%= b.text_field :city, :placeholder => "city", :class => 'span15' %>
+          </div>
+          <div class="span2">
+            <%= b.select :state, options_for_select(["State", "IN", "TX"],@client.mailing_address.state), {}, {:class => 'span15'} %>
+          </div>
+          <div class="span2">
+            <%= b.text_field :zip, :placeholder => "zip", :class => 'span15' %>
+          </div>
+        </div>
+  <% end %>
+
+  </div>
+  <div class="span5">
+    <p class="super-small">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id
+      odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.
+    </p>
+  </div>
+
+</div>
+
+<div class="row-fluid">
+
+  <div class="span10">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="fakeInput">
+          Email
+        </div>
+      </div>
+      <div class="span5">
+        <div class="fakeInput">
+          Account Email Address
+        </div>
+      </div>
+      <div class="span7">
+        <div class="fakeInput">
+          <%= current_user.email %>
+        </div>
+      </div>
+    </div>
+
+    <%= client.fields_for :virtual_addresses do |c| %>
+        <div class="row-fluid">
+          <div class="span3">
+            <%= c.enum_select :contact_type, {}, {:class => 'span15'} %>
+          </div>
+          <div class="span5">
+            <%= c.text_field :contact_label, :placeholder => "label (i.e. work, home)", :class => 'span15' %>
+          </div>
+          <div class="span7">
+            <%= c.text_field :contact_value, :placeholder => "Address", :class => 'span15' %>
+          </div>
+        </div>
+    <% end %>
+
+    <%= client.link_to_add "+ Add contact detail", :virtual_addresses, :class => 'btn ', :id => "add_contact_btn" %>
+
+  </div>
+  <div class="span5">
+    <p class="super-small">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id
+      odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.
+    </p>
+  </div>
+
+</div>
+
+<hr>
+
+<hr>
+<div id="personal_billing">
+<h5>Personal Billing &amp; Method</h5>
+
+<div class="row-fluid">
+
+  <div class="span10">
+    <%= client.fields_for :billing_method do |e| %>
+        <div class="row-fluid">
+          <div class="span4">
+            <%= e.select :billing_type, options_for_select(BillingMethod.enumerated_attributes[:billing_type]), {}, {:class => 'span15 bm_select'} %>
+          </div>
+
+          <div class="span11 bm_check_checkbox" style="padding-top:5px;">
+            <label class="checkbox">
+              <input type="checkbox" class="sameAsP" name="personal_billing_same_as_mailing" checked="checked"/>
+              Billing Address is the same a mailing address</label>
+          </div>
+
+          <div class="span4 bm_cc_spans">
+            <%= e.text_field :billing_name, :placeholder => "name", :class => 'span15 bm_billing_name' %>
+            <%= e.text_field :cc_number, :placeholder => "credit card number", :class => 'span15 bm_cc_number' %>
+            <%= e.text_field :cc_ccv, :placeholder => "card CCV (on back)", :class => 'span15 bm_cc_ccv' %>
+            <%= e.date_select :cc_exp, {:placeholder => "card expiration date", :order => [:month, :year], :prompt => {:month => 'Exp month', :year => 'Exp year'}}, :class => 'span15 bm_cc_exp' %>
+          </div>
+
+        </div>
+
+        <%= e.fields_for :billing_address do |i| %>
+
+            <div class="row-fluid payment-address-Wrap">
+              <div class="span4">
+                <%= i.text_field :street, :placeholder => "Billing Address", :class => 'span15' %>
+              </div>
+              <div class="span3">
+                <%= i.text_field :street2, :placeholder => "Street2", :class => 'span15' %>
+              </div>
+              <div class="span2">
+                <%= i.text_field :county, :placeholder => "County", :class => 'span15' %>
+              </div>
+              <div class="span2">
+                <%= i.text_field :city, :placeholder => "City", :class => 'span15' %>
+              </div>
+              <div class="span2">
+                <%= i.select :state, options_for_select(["State", "IN", "TX"]), {}, {:class => 'span15'} %>
+              </div>
+              <div class="span2">
+                <%= i.text_field :zip, :placeholder => "Zip", :class => 'span15' %>
+              </div>
+            </div>
+
+        <% end %>
+    <% end %>
+  </div>
+
+  <div class="span5">
+    <p class="super-small">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+  </div>
+</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#add_contact_btn').popover({
+            title:'what is contact detail?',
+            trigger:'hover',
+            content:'Any electronic means of contact (not a mailing address), such as email, phones, chat'
+        })
+
+        $('.billing-address-Wrap').hide();
+
+        $(".sameAsP").click(function () {
+
+            if ($(this).is(":checked")) {
+                $('.billing-address-Wrap').hide();
+            } else {
+                $('.billing-address-Wrap').show();
+            }
+
+        });
+
+        function hideset() {
+            $('.bm_check_checkbox, .bm_cc_spans, .billing_address_Wrap').hide();
+        }
+
+
+        $("select.bm_select").change(function () {
+
+            hideset();
+
+            switch ($(this).val()) {
+                case "cc":
+                    $('.bm_cc_spans').show();
+
+                    break;
+
+                case "invoice":
+                    $('.bm_check_checkbox').show();
+
+                    if ($(".sameAsP").is(":checked")) {
+                        $('.billing-address-Wrap').hide();
+                    } else {
+                        $('.billing-address-Wrap').show();
+                    }
+
+                    break;
+            }
+
+        });
+
+        hideset();
+
+    });
+</script>

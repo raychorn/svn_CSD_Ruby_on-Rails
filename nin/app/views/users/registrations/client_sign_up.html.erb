@@ -1,0 +1,25 @@
+<div class="row-fluid">
+    <div class="span3" >
+        <div class="sidebar-nav full-height">
+
+        </div>
+    </div>
+    <div class="span12 body">
+        <%= nested_form_for(@client, :url => client_create_account_path(resource_name)) do |client| %>
+        <input type="hidden" name="role" value="client">
+          <% if @client.errors.any? %>
+              <p id="error_explanation" class ="alert alert-error">
+                <strong><%= pluralize(@client.errors.count, "error") %> prohibited this client account from being created:</strong>
+                <br/>
+                <%= @client.errors.full_messages.join('<br/> ').html_safe %>
+              </p>
+          <% end %>
+        <%= render 'client_basic', :client => client %>
+        <hr>
+        <br />
+        <%= client.submit 'Create Client Account', :class => 'btn btn-primary' %>
+        <%= link_to 'Cancel', root_path, :class => 'btn' %>
+
+        <% end %>
+    </div>
+</div>

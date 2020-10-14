@@ -1,0 +1,60 @@
+<h2>Sign Up !!!</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+    <table>
+      <tr>
+        <td><nobr><%= f.label :entity_name, text='Entity Name' %></nobr></td>
+        <td><nobr><%= f.text_field :entity_name %></nobr></td>
+      </tr>
+      <tr>
+        <td><nobr><%= f.label :mailing_address, text='Mailing Address' %></nobr></td>
+        <td><nobr><%= f.text_field :mailing_address %></nobr></td>
+      </tr>
+      <tr>
+        <td><nobr><%= f.label :business_type, text='Business Type' %></nobr></td>
+        <td><nobr>
+          <%= f.radio_button name='business_type', value='medical' %> <%= f.label :business_type_medical, "Medical" %>
+          <%= f.radio_button name='business_type', value='court' %> <%= f.label :business_type_Court, "Court" %>
+          <%= f.radio_button name='business_type', value='education' %> <%= f.label :business_type_education, "Education" %>
+          <%= f.radio_button name='business_type', value='government' %> <%= f.label :business_type_government, "Government" %>
+          <%= f.radio_button name='business_type', value='corporate' %> <%= f.label :business_type_corporate, "Corporate" %>
+        </nobr></td>
+      </tr>
+      <tr>
+        <td><nobr><%= f.label :notes, text='Notes' %></nobr></td>
+        <td><nobr><%= f.text_area :notes, :cols => 40, :rows => 15 %></nobr></td>
+      </tr>
+      <tr>
+        <td colspan="2"><nobr><b>Account Administrator	 Login information for person who setup account</b></nobr></td>
+      </tr>
+      <tr>
+        <td><nobr><%= f.label :account_admin_first_name, text='First Name' %></nobr></td>
+        <td><nobr><%= f.text_field :account_admin_first_name %></nobr></td>
+      </tr>
+      <tr>
+        <td><nobr><%= f.label :account_admin_last_name, text='Last Name' %></nobr></td>
+        <td><nobr><%= f.text_field :account_admin_last_name %></nobr></td>
+      </tr>
+      <tr>
+        <td><nobr><%= f.label :name, text='Name' %></nobr></td>
+        <td><nobr><%= f.text_field :name %></nobr></td>
+      </tr>
+      <tr>
+        <td><nobr><%= f.label :email, text='Email Address' %></nobr></td>
+        <td><nobr><%= f.email_field :email %></nobr></td>
+      </tr>
+      <tr>
+        <td><nobr><%= f.label :password, text='Password' %></nobr></td>
+        <td><nobr><%= f.password_field :password %></nobr></td>
+      </tr>
+      <tr>
+        <td><nobr><%= f.label :password_confirmation, text='Password Again' %></nobr></td>
+        <td><nobr><%= f.password_field :password_confirmation %></nobr></td>
+      </tr>
+    </table>
+
+    <div><%= f.submit "Sign up" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

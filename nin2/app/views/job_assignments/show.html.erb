@@ -1,0 +1,33 @@
+<%= link_to "Back", job_assignments_path %>
+
+<br/>
+<h3>Job Assignment</h3>
+
+ <!-- attr_accessible :actual_end, :actual_start, :estimated_end, :scheduled_start,
+                  :status, :client, :interpreter, :job_request, :client_billing_method, :interpreter_pricing_plan
+
+  attr_accessible :client_billing_method_id, :interpreter_pricing_plan_id, :client_id, :interpreter_id, :job_request_id, :client_invoice_id, :interpreter_invoice_id
+                  
+  enum_attr :status, %w(pending completed invoiced cancelled)
+  belongs_to :client
+  belongs_to :interpreter
+  belongs_to :job_request -->
+  
+<div>
+    Purpose: <%= @job_assignment.job_request.name %>
+</div>
+<div>
+    Status: <%= @job_assignment.status %>
+</div>
+<div>
+    Scheduled Start: <%= @job_assignment.scheduled_start %>
+</div>
+<div>
+    Scheduled End: <%= @job_assignment.estimated_end %>
+</div>
+<div>
+    Actual Start: <%= @job_assignment.actual_start %>
+</div>
+<div>
+    Actual End <%= @job_assignment.actual_end %>
+</div>

@@ -1,0 +1,89 @@
+<script type="text/javascript"> if (!window.location.hash) { window.location.hash = 'step2'; } </script>
+
+<div class="container" style="margin-top:70px;">
+
+  <div class="new_user">
+
+    <h2 class="form-signin-heading">Sign Up</h2>
+
+    <span id="step2" class="step">
+
+      <br/>
+
+      <h4>Are you an interpreter?</h4>
+
+      <%= link_to "Yes", interpreter_sign_up_path, :class => "btn" %>
+
+      <a href="#step3" class="btn">No</a><br/>
+
+      <br/>
+      <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue sapien, eget consectetur massa rutrum vel.</small>
+
+      <br/>
+
+    </span>
+
+    <span id="step3" class="step">
+      <br/>
+
+      <h4>Are you creating an account for personal use or for use on behalf of an organization?</h4>
+
+      <a href="#step4_p" class="btn">Personal Use</a>
+
+      <a href="#step4_o" class="btn">Organization Use</a><br/>
+
+      <br/>
+      <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue sapien, eget consectetur massa rutrum vel.</small>
+
+      <br/>
+    </span>
+
+    <span id="step4_o" class="step">
+      <br/>
+
+      <h4>Are you the person responsible for the administration of the organization account for scheduling and payment of interpreter services?</h4>
+
+      <%= link_to "Yes", client_sign_up_path(:role => :client_admin), :class => "btn" %>
+
+      <a href="#step5" class="btn">No</a><br/>
+
+      <br/>
+      <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue sapien, eget consectetur massa rutrum vel.</small>
+
+      <br/>
+    </span>
+
+    <span id="step4_p" class="step">
+      <br/>
+
+      <h4>Are you deaf or hearing impaired and require the periodic use of interpreters?</h4>
+
+      <%= link_to "Yes", client_sign_up_path(:role => :deaf), :class => "btn" %>
+
+      <%= link_to "No", client_sign_up_path(:role => :client), :class => "btn" %>
+
+      <br/>
+      <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue sapien, eget consectetur massa rutrum vel.</small>
+
+      <br/>
+    </span>
+
+    <span id="step5" class="step">
+      <br/>
+
+      <h4>What is the name of your organization or the email of the administrator for your organization?</h4>
+
+      <input type="text" placeholder="Organization"><br/>
+      <input type="email" placeholder="Email address"><br/>
+      <a href="" class="btn">Search</a><br/>
+
+      <br/>
+      <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue sapien, eget consectetur massa rutrum vel.</small>
+
+      <br/>
+    </span>
+
+
+  </div>
+
+</div>

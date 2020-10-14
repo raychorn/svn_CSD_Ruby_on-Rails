@@ -1,0 +1,11 @@
+development:
+  frontend_domain: ''
+test:
+  frontend_domain: 'csdinterpreting.com'
+  backend_domain: 'nin.com'
+staging:
+  frontend_domain: 'csdinterpreting.com'
+  backend_domain:
+production:
+  frontend_domain: 'csdinterpreting.com'
+  backend_domain:

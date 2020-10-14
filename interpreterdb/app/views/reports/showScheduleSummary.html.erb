@@ -1,0 +1,83 @@
+<div class="row-fluid" style="margin-left: 100px;">
+  <div class="span6">
+    <h2>Schedule Summary - CSD</h2>
+    <hr/>
+  </div>
+</div>
+
+<div style="margin-left: 100px;">
+  <table width="70%" align="center">
+    <% for item in @assignments %>
+        <%
+           background_image = ''
+           if item["billinggroupid"] == 597
+             background_image = 'images/VRSlogo.jpg'
+           end
+           if (item["flagio"] == 1) or (item["billinggroupid"] == 597)
+             background_image = 'images/rainbow2.jpg'
+           end
+           if item["SameDay"] == 'X'
+             background_image = 'red-stripe.jpg'
+           end
+           if item["SameDayBillRate"] == 'X'
+             background_image = 'images/blue-stripe.jpg'
+           end
+
+           style_interp = ""
+           if (item["interpretername"].to_s.strip! == "")
+             style_interp = 'style="color: #ff0000;"'
+           end
+           unless item["schedstatus"].to_s.downcase!.to_s.index("cancel").nil?
+             style_interp = 'style="text-decoration: line-through;"'
+           end
+        %>
+
+        <tr style="background-image: url(<%=asset_path background_image%>);">
+          <td><%=h item["clientname"] %>&nbsp;<%=h item["schedulecode"] %></td>
+          <td><b>Status:</b>&nbsp;<%=h item["schedstatus"] %></td>
+        </tr>
+        <tr class="schedule_item">
+          <td><%=h item["date"].strftime("%a, %d %b %Y") %></td>
+          <td><b>Job:</b>&nbsp;<%=h item["jobnumber"] %></td>
+        </tr>
+        <tr class="schedule_item">
+          <td><%=h item["fromtime"].strftime("%H:%M %p") %>&nbsp;to&nbsp;<%=h item["endtime"].strftime("%H:%M %p") %></td>
+          <td><b>Invoice:</b>&nbsp;<%=h item["invoicenumber"] %></td>
+        </tr>
+
+        <tr>
+          <td width="100%" colspan="2" align="left">
+            <table width="100%">
+              <tr>
+                <td valign="middle" align="left" width="5%">
+                  <input type="checkbox" name="job<%=h item["jobnumber"] %>">
+                </td>
+                <td width="95%">
+                  <table width="100%">
+                    <tr>
+                      <td nowrap align="right" width="10%"><font class="content" <%=h style_interp %>>Interpreter:</font></td>
+                      <td nowrap align="left" width="40%"><font class="label" <%=h style_interp %>><%=h item["interpretername"] %></font></td>
+                      <td nowrap align="right" width="10%"><font class="content" <%=h style_interp %>>Service For:</font></td>
+                      <td nowrap align="left" width="40%"><font class="label" <%=h style_interp %>><%=h item["servicesforname"] %></font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Requested By:&nbsp;<%=h item["requestedby"] %></td>
+          <td>Phone:&nbsp;<%=h item["requestedbyphone"] %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%=h item["servicelocation"] %></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+    <% end %>
+  </table>
+</div>

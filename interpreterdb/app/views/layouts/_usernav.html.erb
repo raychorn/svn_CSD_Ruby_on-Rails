@@ -1,0 +1,32 @@
+<% is_running_local = request.env["SERVER_NAME"] == '192.168.1.250' %>
+<ul class="nav pull-right">
+  <% if user_signed_in? %>
+      <% if is_running_local %>
+          <li>
+            <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+          </li>
+      <% end %>
+  <% else %>
+    <li>
+    <%= link_to 'Login', new_user_session_path %>  
+    </li>
+  <% end %>
+  <% if user_signed_in? %>
+      <% if is_running_local %>
+          <li>
+            <%= link_to 'Edit account', edit_user_registration_path %>
+          </li>
+      <% end %>
+    <% if current_user.has_role? :admin %>
+      <li>
+      <%= link_to 'Admin', users_path %>
+      </li>
+    <% end %>
+  <% else %>
+      <% if is_running_local %>
+          <li>
+            <%= link_to 'Sign up', new_user_registration_path %>
+          </li>
+      <% end %>
+  <% end %>
+</ul>
